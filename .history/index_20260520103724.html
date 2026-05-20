@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced To-Do List</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>My To-Do List</h1>
+
+    <div class="input-group">
+      <input type="text" id="task-input" placeholder="Add a new task..." />
+      <input type="date" id="task-date" />
+      <button id="add-task">Add</button>
+    </div>
+
+    <div class="controls">
+      <div class="filters">
+        <button data-filter="all" class="filter-btn active">All</button>
+        <button data-filter="active" class="filter-btn">Active</button>
+        <button data-filter="completed" class="filter-btn">Completed</button>
+      </div>
+      <button id="toggle-theme">Dark Mode</button>
+    </div>
+
+    <ul id="task-list"></ul>
+  </div>
+
+  <!-- Sound Effects -->
+  <audio id="sound-add" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+  <audio id="sound-done" src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
+  <audio id="sound-delete" src="https://www.soundjay.com/buttons/sounds/button-10.mp3"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

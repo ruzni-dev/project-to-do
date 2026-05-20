@@ -1,0 +1,290 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 16px;
+  transition: background 0.3s;
+}
+
+.container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+input[type='text'],
+input[type='date'] {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  background-color: #5c67f2;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #4a54e1;
+}
+
+ul {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding: 0;
+}
+
+li {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+li.dragging {
+  opacity: 0.5;
+  border: 1px dashed #5c67f2;
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+li button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.complete-btn {
+  background: #28a745;
+  color: white;
+}
+
+.edit-btn {
+  background: #ffc107;
+  color: white;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 18, 33, 0.55);
+  backdrop-filter: blur(6px);
+  padding: 16px;
+  z-index: 1000;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+  animation: fadeIn 0.18s ease;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+.modal-header h2 {
+  font-size: 1.2rem;
+}
+
+.modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #eef1ff;
+  color: #1f2a5a;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.modal-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.modal-form label {
+  font-weight: 600;
+  color: inherit;
+}
+
+.modal-form input {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid #d6dbe7;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+
+.secondary-btn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.primary-btn {
+  background: #5c67f2;
+  color: #fff;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filters .filter-btn {
+  background: #ddd;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filters .filter-btn.active {
+  background: #5c67f2;
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.dark {
+  background: #181818;
+  color: #e0e0e0;
+}
+
+body.dark .container {
+  background: #242424;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .modal {
+  background: #242424;
+  color: #e0e0e0;
+}
+
+body.dark .modal-close {
+  background: #333;
+  color: #fff;
+}
+
+body.dark .modal-form input {
+  background: #333;
+  color: #fff;
+  border-color: #4b5563;
+}
+
+body.dark .secondary-btn {
+  background: #444;
+  color: #eee;
+}
+
+body.dark input,
+body.dark button {
+  background: #333;
+  color: #fff;
+}
+
+body.dark .task-text.completed {
+  color: #aaa;
+}
+
+body.dark .filter-btn {
+  background: #444;
+  color: #eee;
+}
+
+body.dark .filter-btn.active {
+  background: #5c67f2;
+}
+
+@media (max-width: 500px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+}
